@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { Square } from 'lucide-react';
-import Card from './components/Card' 
+import Todo from './components/Todo'
+import TodoNames from './todos';
 
 function App() {
   return (
@@ -8,12 +8,9 @@ function App() {
       <Global></Global>
       <Main>
         <h1>helo</h1>
-        <Cards>
-          <Card><p>Task1</p><Button><Square/></Button></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-        </Cards>
+        <Todos>
+          {TodoNames.map(name => <Todo itemName={name}/>)}
+        </Todos>
       </Main>
     </>
   )
@@ -34,4 +31,4 @@ const Main = styled.main`
   max-width: 1200px;
 `;
 
-const Cards = styled.ul``;
+const Todos = styled.ul``;
