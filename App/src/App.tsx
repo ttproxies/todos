@@ -1,6 +1,6 @@
-import styled, { createGlobalStyle } from 'styled-components'
-import Todo from './components/Todo'
-import TodoNames from './todos';
+import styled, { createGlobalStyle } from "styled-components";
+import Todo from "./components/Todo";
+import TodoNames from "./todos";
 
 function App() {
   return (
@@ -9,14 +9,16 @@ function App() {
       <Main>
         <h1>helo</h1>
         <Todos>
-          {TodoNames.map(name => <Todo itemName={name}/>)}
+          {TodoNames.map((name, i) => (
+            <Todo itemName={name} key={i} fCheck={() => {console.log("checked")}} fDelete={() => {console.log("deleted")}} />
+          ))}
         </Todos>
       </Main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
 
 const Global = createGlobalStyle`
   * {
@@ -24,7 +26,7 @@ const Global = createGlobalStyle`
     margin: 0;
     padding: 0;
   }  
-`
+`;
 
 const Main = styled.main`
   margin: auto;

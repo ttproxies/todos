@@ -4,16 +4,22 @@ import { Square, SquareCheck, Trash } from 'lucide-react';
 interface TodoProps {
   className?: string;
   itemName: string;
+  fDelete: () => void;
+  fCheck: () => void;
 }
 
-function Todo({ className, itemName }: TodoProps) {
+function Todo({ className, itemName, fDelete, fCheck }: TodoProps) {
   return <TodoCont className={className}>
     <TodoName>{itemName}</TodoName>
     <Buttons>
-      <Button><Trash /></Button>
-      <Button><Square /></Button>
+      <Button onClick={fDelete}><Trash /></Button>
+      <Button onClick={fCheck}><Square /></Button>
     </Buttons>
   </TodoCont>
+}
+
+function changeIcon() {
+  
 }
 
 const TodoName = styled.p``
